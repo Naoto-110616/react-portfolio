@@ -45,11 +45,11 @@ const ToolSet = () => {
 		<section id="toolSet" className={classes["toolSet-wrap"]}>
 			<SectionTItle title={"ToolSet"} />
 			<h3>Frontend</h3>
-			<div className={classes["toolSet-item"]}>{frontItems}</div>
+			<div className={classes["toolSet-item"]}>{!frontSkills.isLoading ? frontItems : "Loading..."}</div>
 			<h3>Backend</h3>
-			<div className={classes["toolSet-item"]}>{backItems}</div>
+			<div className={classes["toolSet-item"]}>{!backendSkills.isLoading ? backItems : "Loading..."}</div>
 			<h3>Tools</h3>
-			<div className={classes["toolSet-item"]}>{tools}</div>
+			<div className={classes["toolSet-item"]}>{!toolSkills.isLoading ? tools : "Loading..."}</div>
 		</section>
 	);
 };

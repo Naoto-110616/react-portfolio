@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const useSkill = (url) => {
 	const [getSkills, setGetSkills] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchSkills = async () => {
@@ -18,11 +19,12 @@ const useSkill = (url) => {
 				});
 			}
 			setGetSkills(loadedSkills);
+			setIsLoading(false);
 		};
 		fetchSkills();
 	}, [url]);
 	return {
-		getSkills,
+		getSkills, isLoading
 	};
 };
 

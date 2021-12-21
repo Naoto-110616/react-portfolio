@@ -3,10 +3,16 @@ import { useEffect, useState } from "react";
 const useSkill = (url) => {
 	const [getSkills, setGetSkills] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [httpError, setHttpError] = useState();
 
 	useEffect(() => {
 		const fetchSkills = async () => {
 			const response = await fetch(url);
+
+			if (!response.ok) {
+				throw new Error("Something went wrong!");
+			}
+
 			const responseData = await response.json();
 
 			const loadedSkills = [];
@@ -21,10 +27,15 @@ const useSkill = (url) => {
 			setGetSkills(loadedSkills);
 			setIsLoading(false);
 		};
-		fetchSkills();
+		fetchSkills().catch((error) => {
+			setIsLoading(false);
+			setHttpError(error.message);
+		});
 	}, [url]);
 	return {
-		getSkills, isLoading
+		getSkills,
+		isLoading,
+		httpError,
 	};
 };
 

@@ -2,10 +2,11 @@ import Icons from "../Header/icons/Icons";
 import classes from "./Footer.module.css";
 
 const Footer = (props) => {
+	const thisYear = new Date().getFullYear();
 	return (
 		<footer className={classes.footer}>
 			<div>
-				<p>© Copyright 2021 busainu.com</p>
+				<p>{"© Copyright " + thisYear + " busainu.com"}</p>
 			</div>
 			<Icons className={classes.icon} />
 		</footer>

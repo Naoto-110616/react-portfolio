@@ -45,11 +45,26 @@ const ToolSet = () => {
 		<section id="toolSet" className={classes["toolSet-wrap"]}>
 			<SectionTItle title={"ToolSet"} />
 			<h3>Frontend</h3>
-			<div className={classes["toolSet-item"]}>{!frontSkills.isLoading ? frontItems : "Loading..."}</div>
+			<div className={classes["toolSet-item"]}>
+				{frontSkills.httpError && (
+					<p className={classes.isError}>{frontSkills.httpError}</p>
+				)}
+				{!frontSkills.isLoading ? frontItems : "Loading..."}
+			</div>
 			<h3>Backend</h3>
-			<div className={classes["toolSet-item"]}>{!backendSkills.isLoading ? backItems : "Loading..."}</div>
+			<div className={classes["toolSet-item"]}>
+				{backendSkills.httpError && (
+					<p className={classes.isError}>{backendSkills.httpError}</p>
+				)}
+				{!backendSkills.isLoading ? backItems : "Loading..."}
+			</div>
 			<h3>Tools</h3>
-			<div className={classes["toolSet-item"]}>{!toolSkills.isLoading ? tools : "Loading..."}</div>
+			<div className={classes["toolSet-item"]}>
+				{toolSkills.httpError && (
+					<p className={classes.isError}>{toolSkills.httpError}</p>
+				)}
+				{!toolSkills.isLoading ? tools : "Loading..."}
+			</div>
 		</section>
 	);
 };

@@ -10,7 +10,7 @@ const PROJECTS = [
 		description: "This portfolio site.",
 		skills: [REACT, DOCKER, GIT, GITHUB],
 		gitHubUrl: "https://github.com/Naoto-110616/portfolio",
-		demoUrl: "https://demo.com",
+		demoUrl: "https://busainu.com",
 		personal: true,
 	},
 	{

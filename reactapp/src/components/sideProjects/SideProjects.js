@@ -10,7 +10,7 @@ const PROJECTS = [
 		description: "This portfolio site.",
 		skills: [REACT, DOCKER, GIT, GITHUB],
 		gitHubUrl: "https://github.com/Naoto-110616/portfolio",
-		demoUrl: "https://busainu.com",
+		demoUrl: "https://portfolio-page-react.web.app",
 		personal: true,
 	},
 	{
@@ -20,7 +20,7 @@ const PROJECTS = [
 		description: "I made it based on facebook.",
 		skills: [REACT, DOCKER, GIT, GITHUB],
 		gitHubUrl: "https://github.com/Naoto-110616/Goodbook_react-app",
-		demoUrl: "https://demo.com",
+		demoUrl: "https://goodbook-react-app.web.app",
 		personal: true,
 	},
 ];

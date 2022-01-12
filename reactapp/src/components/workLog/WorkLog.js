@@ -15,6 +15,7 @@ import {
 	DOCKER,
 	WORDPRESS,
 	MY_SQL,
+	WEBPACK,
 } from "../../util/consts";
 const DATA_LIST = [
 	{
@@ -36,6 +37,7 @@ const DATA_LIST = [
 			GIT,
 			GITLAB,
 			MY_SQL,
+			WEBPACK,
 		],
 	},
 ];

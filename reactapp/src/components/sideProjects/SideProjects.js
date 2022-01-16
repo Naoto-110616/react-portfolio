@@ -18,7 +18,7 @@ const PROJECTS = [
 		title: "goodbook",
 		iconClasses: "fab fa-facebook",
 		description: "I made it based on facebook.",
-		skills: [REACT, DOCKER, GIT, GITHUB, FIREBASE],
+		skills: [REACT, "Redux", DOCKER, GIT, GITHUB, FIREBASE, "SPA"],
 		gitHubUrl: "https://github.com/Naoto-110616/Goodbook_react-app",
 		demoUrl: "https://goodbook-react-app.web.app",
 		personal: true,

@@ -6,7 +6,8 @@ const Footer = (props) => {
 	return (
 		<footer className={classes.footer}>
 			<div>
-				<p>{"© Copyright " + thisYear + " busainu.com"}</p>
+				<p>{"© Copyright " + thisYear}</p>
+				<p>siodeitadaku@gmail.com</p>
 			</div>
 			<Icons className={classes.icon} />
 		</footer>

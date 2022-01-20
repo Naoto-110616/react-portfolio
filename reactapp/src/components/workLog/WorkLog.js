@@ -22,7 +22,7 @@ const DATA_LIST = [
 		id: "1",
 		companyName: "ideaimage Co.Ltd.",
 		companyBusiness: "Homepage update",
-		jobTitle: HTML_CODER,
+		jobTitle: [HTML_CODER, " Frontend Engineer"],
 		term: "May 2021 - Present",
 		place: OSAKA_JAPAN,
 		tasks: ["Create web pages", CODING],

@@ -2,6 +2,8 @@ import classes from "./ToolSet.module.css";
 import SectionTItle from "../sectionTitle/SectionTitle";
 import Item from "./item/Item";
 import useSkill from "../../hooks/use-skill";
+import { SiTypescript } from "react-icons/si";
+import { FaBandcamp } from "react-icons/fa";
 
 const ToolSet = () => {
 	const frontSkills = useSkill(

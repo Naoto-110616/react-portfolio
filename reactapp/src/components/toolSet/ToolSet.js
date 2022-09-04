@@ -2,7 +2,7 @@ import classes from "./ToolSet.module.css";
 import SectionTItle from "../sectionTitle/SectionTitle";
 import Item from "./item/Item";
 import useSkill from "../../hooks/use-skill";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -10,16 +10,19 @@ const ToolSet = () => {
 	const frontSkill = document.querySelectorAll(".frontSkill");
 	const backendSkill = document.querySelectorAll(".backendSkill");
 	const toolSkill = document.querySelectorAll(".toolSkill");
-	useEffect(() => {
-		if (process.browser) {
-			gsap.registerPlugin(ScrollTrigger);
-			setAnimation();
-		}
-	}, []);
+	const frontSkills = useSkill(
+		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/frontSkills.json"
+	);
+	const backendSkills = useSkill(
+		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/backendSkills.json"
+	);
+	const toolSkills = useSkill(
+		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/ToolSkills.json"
+	);
 
 	const TLHEADER = gsap.timeline();
 
-	const setAnimation = () => {
+	const setAnimation = useCallback(() => {
 		TLHEADER.from(".frontTitle", {
 			autoAlpha: 0,
 			y: -50,
@@ -92,17 +95,14 @@ const ToolSet = () => {
 					end: "bottom 55%",
 				},
 			});
-	};
+	});
 
-	const frontSkills = useSkill(
-		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/frontSkills.json"
-	);
-	const backendSkills = useSkill(
-		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/backendSkills.json"
-	);
-	const toolSkills = useSkill(
-		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/ToolSkills.json"
-	);
+	useEffect(() => {
+		if (process.browser) {
+			gsap.registerPlugin(ScrollTrigger);
+			setAnimation();
+		}
+	}, [frontSkills, backendSkills, toolSkills, setAnimation]);
 
 	return (
 		<section id="toolSet" className={classes["toolSet-wrap"]}>

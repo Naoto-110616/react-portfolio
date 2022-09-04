@@ -18,7 +18,7 @@ const Header = () => {
 	const TLHEADER = gsap.timeline({
 		defaults: {
 			duration: 0.7,
-			ease: "bounce.out",
+			ease: "power4.out",
 		},
 	});
 

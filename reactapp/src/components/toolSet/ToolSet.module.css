@@ -2,6 +2,8 @@
 	text-align: center;
 	width: 70%;
 	margin: 0 auto;
+	position: relative;
+	z-index: -1;
 }
 .toolSet-wrap h3 {
 	color: #5f9ea0;

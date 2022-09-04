@@ -4,6 +4,9 @@ import SideProjectsItem from "./sideProjectsItem/SideProjectsItem";
 import { REACT, DOCKER, GIT, GITHUB, FIREBASE } from "../../util/consts";
 import { ImProfile } from "react-icons/im";
 import { AiOutlineProfile, AiOutlineFacebook } from "react-icons/ai";
+import gsap from "gsap";
+import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 const PROJECTS = [
 	{
 		id: 1,
@@ -39,6 +42,27 @@ const PROJECTS = [
 ];
 
 const SideProjects = () => {
+	const setAnimation = () => {
+		gsap.from(".sideProjectCard", {
+			autoAlpha: 0,
+			y: +200,
+			duration: 0.5,
+			stagger: 0.1,
+			scrollTrigger: {
+				markers: true,
+				trigger: "#side-projects",
+				scrub: true,
+				start: "start center",
+				end: "end 10%",
+			},
+		});
+	};
+
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+		setAnimation();
+	}, []);
+
 	const sideProject = PROJECTS.map((projects) => (
 		<SideProjectsItem key={projects.id} data={projects} />
 	));

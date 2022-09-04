@@ -4,7 +4,8 @@
 	margin: 0 auto;
 	position: relative;
 	z-index: -1;
-	gap: 100px;
+	display: flex;
+	flex-direction: column;
 }
 .toolSet-wrap h3 {
 	color: #5f9ea0;

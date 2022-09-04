@@ -63,13 +63,9 @@ const ToolSet = () => {
 			y: -50,
 			duration: 0.5,
 			stagger: 0.1,
-			markers: true,
 			scrollTrigger: {
-				markers: true,
-				trigger: ".frontSkillsWrapper",
+				trigger: ".frontTitle",
 				scrub: 0.5,
-				start: "top 80%",
-				end: "bottom 55%",
 			},
 		})
 			.from(frontSkill, {
@@ -77,69 +73,49 @@ const ToolSet = () => {
 				y: -50,
 				duration: 0.5,
 				stagger: 0.1,
-				markers: true,
 				scrollTrigger: {
-					markers: true,
 					trigger: ".frontSkillsWrapper",
 					scrub: 0.5,
-					start: "top 80%",
-					end: "bottom 55%",
 				},
 			})
 			.from(".backendTitle", {
 				autoAlpha: 0,
-				y: -50,
+				x: -50,
 				duration: 0.4,
 				stagger: 0.1,
-				markers: true,
 				scrollTrigger: {
-					markers: true,
-					trigger: ".backendSkillsWrapper",
+					trigger: ".backendTitle",
 					scrub: 0.5,
-					start: "top 80%",
-					end: "bottom 55%",
 				},
 			})
 			.from(backendSkill, {
 				autoAlpha: 0,
-				y: -50,
+				x: -50,
 				duration: 0.5,
 				stagger: 0.1,
-				markers: true,
 				scrollTrigger: {
-					markers: true,
 					trigger: ".backendSkillsWrapper",
 					scrub: 0.5,
-					start: "top 80%",
-					end: "bottom 55%",
 				},
 			})
 			.from(".toolTitle", {
 				autoAlpha: 0,
-				y: -50,
+				x: 50,
 				duration: 0.4,
 				stagger: 0.1,
-				markers: true,
 				scrollTrigger: {
-					markers: true,
-					trigger: ".toolsSkillsWrapper",
+					trigger: ".toolTitle",
 					scrub: 0.5,
-					start: "top 80%",
-					end: "bottom 55%",
 				},
 			})
 			.from(toolSkill, {
 				autoAlpha: 0,
-				y: -50,
+				x: 50,
 				duration: 0.5,
 				stagger: 0.1,
-				markers: true,
 				scrollTrigger: {
-					markers: true,
 					trigger: ".toolsSkillsWrapper",
 					scrub: 0.5,
-					start: "top 80%",
-					end: "bottom 55%",
 				},
 			});
 	}, [TLHEADER, backendSkill, frontSkill, toolSkill]);

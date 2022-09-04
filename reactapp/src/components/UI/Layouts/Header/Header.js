@@ -25,11 +25,14 @@ const Header = () => {
 	const setAnimation = () => {
 		TLHEADER.from("header", {
 			y: -100,
+			autoAlpha: 0,
 		})
 			.from(
 				"h1",
 				{
 					y: -70,
+					autoAlpha: 0,
+					ease: "bounce.out",
 				},
 				"-=0.1"
 			)
@@ -37,6 +40,8 @@ const Header = () => {
 				"nav",
 				{
 					y: -70,
+					autoAlpha: 0,
+					ease: "bounce.out",
 				},
 				"<"
 			);

@@ -63,7 +63,9 @@ const ToolSet = () => {
 			y: -50,
 			duration: 0.5,
 			stagger: 0.1,
+			markers: true,
 			scrollTrigger: {
+				markers: true,
 				trigger: ".frontSkillsWrapper",
 				scrub: 0.5,
 				start: "top 80%",
@@ -75,7 +77,9 @@ const ToolSet = () => {
 				y: -50,
 				duration: 0.5,
 				stagger: 0.1,
+				markers: true,
 				scrollTrigger: {
+					markers: true,
 					trigger: ".frontSkillsWrapper",
 					scrub: 0.5,
 					start: "top 80%",
@@ -87,7 +91,9 @@ const ToolSet = () => {
 				y: -50,
 				duration: 0.4,
 				stagger: 0.1,
+				markers: true,
 				scrollTrigger: {
+					markers: true,
 					trigger: ".backendSkillsWrapper",
 					scrub: 0.5,
 					start: "top 80%",
@@ -99,7 +105,9 @@ const ToolSet = () => {
 				y: -50,
 				duration: 0.5,
 				stagger: 0.1,
+				markers: true,
 				scrollTrigger: {
+					markers: true,
 					trigger: ".backendSkillsWrapper",
 					scrub: 0.5,
 					start: "top 80%",
@@ -111,7 +119,9 @@ const ToolSet = () => {
 				y: -50,
 				duration: 0.4,
 				stagger: 0.1,
+				markers: true,
 				scrollTrigger: {
+					markers: true,
 					trigger: ".toolsSkillsWrapper",
 					scrub: 0.5,
 					start: "top 80%",
@@ -123,7 +133,9 @@ const ToolSet = () => {
 				y: -50,
 				duration: 0.5,
 				stagger: 0.1,
+				markers: true,
 				scrollTrigger: {
+					markers: true,
 					trigger: ".toolsSkillsWrapper",
 					scrub: 0.5,
 					start: "top 80%",

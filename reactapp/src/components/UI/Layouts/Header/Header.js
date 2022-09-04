@@ -17,26 +17,26 @@ const Header = () => {
 
 	const TLHEADER = gsap.timeline({
 		defaults: {
-			duration: 0.5,
+			duration: 0.7,
 			ease: "bounce.out",
 		},
 	});
 
 	const setAnimation = () => {
 		TLHEADER.from("header", {
-			y: -50,
+			y: -100,
 		})
 			.from(
 				"h1",
 				{
-					y: -100,
+					y: -70,
 				},
 				"-=0.1"
 			)
 			.from(
 				"nav",
 				{
-					y: -100,
+					y: -70,
 				},
 				"<"
 			);

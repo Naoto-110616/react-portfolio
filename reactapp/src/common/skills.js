@@ -9,6 +9,7 @@ import {
 	SiCentos,
 	SiUbuntu,
 	SiJavascript,
+	SiWebpack,
 } from "react-icons/si";
 import { FaSass, FaNodeJs, FaGulp } from "react-icons/fa";
 import { DiReact, DiNpm, DiGitBranch } from "react-icons/di";
@@ -120,24 +121,30 @@ export const toolSkills = [
 	},
 	{
 		id: 5,
-		title: "webpack",
+		title: "Webpack",
+		rate: "☆☆",
+		icon: SiWebpack,
+	},
+	{
+		id: 6,
+		title: "WordPress",
 		rate: "☆☆☆☆",
 		icon: SiWordpress,
 	},
 	{
-		id: 6,
+		id: 7,
 		title: "npm",
 		rate: "☆☆☆",
 		icon: DiNpm,
 	},
 	{
-		id: 7,
+		id: 8,
 		title: "git",
 		rate: "☆☆☆",
 		icon: DiGitBranch,
 	},
 	{
-		id: 8,
+		id: 9,
 		title: "Github",
 		rate: "☆☆☆",
 		icon: AiOutlineGithub,

@@ -3,18 +3,14 @@ import HeaderNav from "./headerNav/HeaderNav";
 import Icons from "./icons/Icons";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import MediaQuery from "react-responsive";
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Header = () => {
-	useEffect(() => {
-		if (process.browser) {
-			gsap.registerPlugin(ScrollTrigger);
-			setAnimation();
-		}
-	}, []);
-
+	const headerRef = useRef();
+	const h1Ref = useRef();
+	const navRef = useRef();
 	const TLHEADER = gsap.timeline({
 		defaults: {
 			duration: 0.7,
@@ -22,13 +18,13 @@ const Header = () => {
 		},
 	});
 
-	const setAnimation = () => {
-		TLHEADER.from("header", {
+	const setAnimation = useCallback(() => {
+		TLHEADER.from(headerRef.current, {
 			y: -100,
 			autoAlpha: 0,
 		})
 			.from(
-				"h1",
+				h1Ref.current,
 				{
 					y: -70,
 					autoAlpha: 0,
@@ -37,7 +33,7 @@ const Header = () => {
 				"-=0.1"
 			)
 			.from(
-				"nav",
+				navRef.current,
 				{
 					y: -70,
 					autoAlpha: 0,
@@ -45,14 +41,21 @@ const Header = () => {
 				},
 				"<"
 			);
-	};
+	}, [TLHEADER]);
+
+	useEffect(() => {
+		if (process.browser) {
+			gsap.registerPlugin(ScrollTrigger);
+			setAnimation();
+		}
+	}, [setAnimation]);
 
 	return (
-		<header className={classes.header}>
+		<header ref={headerRef} className={classes.header}>
 			<AnchorLink href="#root">
-				<h1>Portfolio</h1>
+				<h1 ref={h1Ref}>Portfolio</h1>
 			</AnchorLink>
-			<div className="nav">
+			<div ref={navRef}>
 				<div className={classes["header-item"]}>
 					<Icons />
 					<MediaQuery query="(min-width: 768px)">

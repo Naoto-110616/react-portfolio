@@ -1,63 +1,54 @@
 import classes from "./ToolSet.module.css";
 import SectionTItle from "../sectionTitle/SectionTitle";
 import Item from "./item/Item";
-import useSkill from "../../hooks/use-skill";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { frontSkills, backendSkills, toolSkills } from "../../common/skills";
 
 const ToolSet = () => {
-	const frontSkill = document.querySelectorAll(".frontSkill");
-	const backendSkill = document.querySelectorAll(".backendSkill");
-	const toolSkill = document.querySelectorAll(".toolSkill");
+	const frontSkillRefs = useRef([]);
+	const backendSkillRefs = useRef([]);
+	const toolSkillRefs = useRef([]);
 
-	const frontSkills = useSkill(
-		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/frontSkills.json"
-	);
-	const backendSkills = useSkill(
-		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/backendSkills.json"
-	);
-	const toolSkills = useSkill(
-		"https://portfolio-page-react-default-rtdb.firebaseio.com/skills/ToolSkills.json"
-	);
-
-	const frontItems = frontSkills.getSkills.map((frontSkill) => (
-		<div className="frontSkill">
+	const frontItems = frontSkills.map((frontSkill, i) => (
+		<div
+			ref={frontSkillRefs[i]}
+			className="frontSkill"
+			key={`${frontSkill.id}`}
+		>
 			<Item
-				key={frontSkill.id}
 				id={frontSkill.id}
 				title={frontSkill.title}
 				rate={frontSkill.rate}
-				iconClassName={frontSkill.iconClassName}
+				icon={frontSkill.icon}
 			/>
 		</div>
 	));
-	const backItems = backendSkills.getSkills.map((backendSkill) => (
-		<div className="backendSkill">
+	const backItems = backendSkills.map((backendSkill, i) => (
+		<div
+			ref={backendSkillRefs[i]}
+			className="backendSkill"
+			key={`${backendSkill.id}`}
+		>
 			<Item
-				key={backendSkill.id}
 				id={backendSkill.id}
 				title={backendSkill.title}
 				rate={backendSkill.rate}
-				iconClassName={backendSkill.iconClassName}
+				icon={backendSkill.icon}
 			/>
 		</div>
 	));
-	const tools = toolSkills.getSkills.map((tool) => (
-		<div className="toolSkill">
-			<Item
-				key={tool.id}
-				id={tool.id}
-				title={tool.title}
-				rate={tool.rate}
-				iconClassName={tool.iconClassName}
-			/>
+	const tools = toolSkills.map((tool, i) => (
+		<div ref={toolSkillRefs[i]} className="toolSkill" key={`${tool.id}`}>
+			<Item id={tool.id} title={tool.title} rate={tool.rate} icon={tool.icon} />
 		</div>
 	));
 
 	const TLHEADER = gsap.timeline();
 
 	const setAnimation = useCallback(() => {
+		console.log(frontSkillRefs);
 		TLHEADER.from(".frontTitle", {
 			autoAlpha: 0,
 			y: -50,
@@ -68,7 +59,7 @@ const ToolSet = () => {
 				scrub: 0.5,
 			},
 		})
-			.from(frontSkill, {
+			.from(frontSkillRefs.current.value, {
 				autoAlpha: 0,
 				y: -50,
 				duration: 0.5,
@@ -88,7 +79,7 @@ const ToolSet = () => {
 					scrub: 0.5,
 				},
 			})
-			.from(backendSkill, {
+			.from(backendSkillRefs.current.value, {
 				autoAlpha: 0,
 				x: -50,
 				duration: 0.5,
@@ -108,7 +99,7 @@ const ToolSet = () => {
 					scrub: 0.5,
 				},
 			})
-			.from(toolSkill, {
+			.from(toolSkillRefs.current.value, {
 				autoAlpha: 0,
 				x: 50,
 				duration: 0.5,
@@ -118,14 +109,15 @@ const ToolSet = () => {
 					scrub: 0.5,
 				},
 			});
-	}, [TLHEADER, backendSkill, frontSkill, toolSkill]);
+	}, [TLHEADER, backendSkillRefs, frontSkillRefs, toolSkillRefs]);
 
 	useEffect(() => {
+		console.log.apply("hoge");
 		if (process.browser) {
 			gsap.registerPlugin(ScrollTrigger);
 			setAnimation();
 		}
-	}, [frontSkills, backendSkills, toolSkills, setAnimation]);
+	}, [setAnimation]);
 
 	return (
 		<section id="toolSet" className={classes["toolSet-wrap"]}>

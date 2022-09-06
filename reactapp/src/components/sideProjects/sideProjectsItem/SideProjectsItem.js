@@ -1,6 +1,32 @@
+import { useRef } from "react";
 import classes from "./SideProjectsItem.module.css";
+import gsap from "gsap";
+import { useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const SideProjectsItem = (props) => {
+	const sideProjectCardRefs = useRef([]);
+	const setAnimation = () => {
+		gsap.from(sideProjectCardRefs.current, {
+			autoAlpha: 0,
+			y: +200,
+			duration: 0.5,
+			stagger: 0.1,
+			scrollTrigger: {
+				markers: true,
+				trigger: "#side-projects",
+				scrub: true,
+				start: "start center",
+				end: "end 10%",
+			},
+		});
+	};
+
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+		setAnimation();
+	}, [sideProjectCardRefs]);
+
 	const skills = props.data.skills.map((skill) => (
 		<div
 			key={`${props.data.id}${skill}`}
@@ -26,7 +52,7 @@ const SideProjectsItem = (props) => {
 		);
 	}
 	return (
-		<div className={`${classes.sideProjectsItem} sideProjectCard`}>
+		<div ref={sideProjectCardRefs} className={`${classes.sideProjectsItem}`}>
 			<div className={classes["icon-wrap"]}>{props.data.icon}</div>
 			<p className={classes["projects-type"]}>
 				{props.data.personal ? "Personal" : "Group"}

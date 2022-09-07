@@ -12,7 +12,7 @@ const ToolSet = () => {
 	const toolSkillRefs = useRef([]);
 
 	const frontItems = frontSkills.map((frontSkill, i) => (
-		<div ref={frontSkillRefs[i]} key={`${frontSkill.id}`}>
+		<div key={`${frontSkill.id}`}>
 			<Item
 				id={frontSkill.id}
 				title={frontSkill.title}
@@ -22,7 +22,7 @@ const ToolSet = () => {
 		</div>
 	));
 	const backItems = backendSkills.map((backendSkill, i) => (
-		<div ref={backendSkillRefs[i]} key={`${backendSkill.id}`}>
+		<div key={`${backendSkill.id}`}>
 			<Item
 				id={backendSkill.id}
 				title={backendSkill.title}
@@ -32,7 +32,7 @@ const ToolSet = () => {
 		</div>
 	));
 	const tools = toolSkills.map((tool, i) => (
-		<div ref={toolSkillRefs[i]} key={`${tool.id}`}>
+		<div key={`${tool.id}`}>
 			<Item id={tool.id} title={tool.title} rate={tool.rate} icon={tool.icon} />
 		</div>
 	));
@@ -49,6 +49,7 @@ const ToolSet = () => {
 			scrollTrigger: {
 				trigger: ".frontTitle",
 				scrub: 0.5,
+				end: "center center",
 			},
 		})
 			.from(frontSkillRefs.current, {
@@ -59,6 +60,8 @@ const ToolSet = () => {
 				scrollTrigger: {
 					trigger: ".frontSkillsWrapper",
 					scrub: 0.5,
+					markers: true,
+					end: "center center",
 				},
 			})
 			.from(".backendTitle", {
@@ -69,6 +72,7 @@ const ToolSet = () => {
 				scrollTrigger: {
 					trigger: ".backendTitle",
 					scrub: 0.5,
+					end: "center 65%",
 				},
 			})
 			.from(backendSkillRefs.current, {
@@ -79,6 +83,7 @@ const ToolSet = () => {
 				scrollTrigger: {
 					trigger: ".backendSkillsWrapper",
 					scrub: 0.5,
+					end: "center 65%",
 				},
 			})
 			.from(".toolTitle", {
@@ -89,6 +94,7 @@ const ToolSet = () => {
 				scrollTrigger: {
 					trigger: ".toolTitle",
 					scrub: 0.5,
+					end: "center 65%",
 				},
 			})
 			.from(toolSkillRefs.current, {
@@ -99,6 +105,7 @@ const ToolSet = () => {
 				scrollTrigger: {
 					trigger: ".toolsSkillsWrapper",
 					scrub: 0.5,
+					end: "center 65%",
 				},
 			});
 	}, [TLHEADER, backendSkillRefs, frontSkillRefs, toolSkillRefs]);
@@ -116,7 +123,7 @@ const ToolSet = () => {
 			<SectionTItle title={"ToolSet"} />
 			<h3 className="frontTitle">Frontend</h3>
 			<div className="frontSkillsWrapper">
-				<div className={classes["toolSet-item"]}>
+				<div ref={frontSkillRefs} className={classes["toolSet-item"]}>
 					{frontSkills.httpError && (
 						<p className={classes.isError}>{frontSkills.httpError}</p>
 					)}
@@ -127,7 +134,7 @@ const ToolSet = () => {
 				<h3>Backend</h3>
 			</div>
 			<div className="backendSkillsWrapper">
-				<div className={classes["toolSet-item"]}>
+				<div ref={backendSkillRefs} className={classes["toolSet-item"]}>
 					{backendSkills.httpError && (
 						<p className={classes.isError}>{backendSkills.httpError}</p>
 					)}
@@ -138,7 +145,7 @@ const ToolSet = () => {
 				<h3>Tools</h3>
 			</div>
 			<div className="toolsSkillsWrapper">
-				<div className={classes["toolSet-item"]}>
+				<div ref={toolSkillRefs} className={classes["toolSet-item"]}>
 					{toolSkills.httpError && (
 						<p className={classes.isError}>{toolSkills.httpError}</p>
 					)}

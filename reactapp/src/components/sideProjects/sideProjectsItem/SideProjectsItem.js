@@ -17,7 +17,7 @@ const SideProjectsItem = (props) => {
 				trigger: "#side-projects",
 				scrub: true,
 				start: "start center",
-				end: "end 10%",
+				end: "end end",
 			},
 		});
 	};

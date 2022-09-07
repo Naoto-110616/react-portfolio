@@ -7,17 +7,16 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 const SideProjectsItem = (props) => {
 	const sideProjectCardRefs = useRef([]);
 	const setAnimation = () => {
-		gsap.from(sideProjectCardRefs.current, {
+		gsap.from(sideProjectCardRefs.current, 1, {
 			autoAlpha: 0,
 			y: +200,
 			duration: 0.5,
 			stagger: 0.1,
 			scrollTrigger: {
-				markers: true,
 				trigger: "#side-projects",
 				scrub: true,
 				start: "start center",
-				end: "end end",
+				end: "end 10%",
 			},
 		});
 	};

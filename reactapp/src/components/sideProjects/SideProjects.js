@@ -4,7 +4,7 @@ import SideProjectsItem from "./sideProjectsItem/SideProjectsItem";
 import projects from "../../common/projects";
 
 const SideProjects = () => {
-	const sideProject = projects.map((project) => (
+	const sideProject = projects.map((project,i) => (
 		<SideProjectsItem key={project.id} data={project} />
 	));
 	return (

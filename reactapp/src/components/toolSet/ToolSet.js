@@ -12,7 +12,12 @@ const ToolSet = () => {
 	const toolSkillRefs = useRef([]);
 
 	const frontItems = frontSkills.map((frontSkill, i) => (
-		<div key={`${frontSkill.id}`}>
+		<div
+			ref={(element) => {
+				frontSkillRefs.current[i] = element;
+			}}
+			key={`${frontSkill.id}`}
+		>
 			<Item
 				id={frontSkill.id}
 				title={frontSkill.title}
@@ -22,7 +27,12 @@ const ToolSet = () => {
 		</div>
 	));
 	const backItems = backendSkills.map((backendSkill, i) => (
-		<div key={`${backendSkill.id}`}>
+		<div
+			ref={(element) => {
+				backendSkillRefs.current[i] = element;
+			}}
+			key={`${backendSkill.id}`}
+		>
 			<Item
 				id={backendSkill.id}
 				title={backendSkill.title}
@@ -32,7 +42,12 @@ const ToolSet = () => {
 		</div>
 	));
 	const tools = toolSkills.map((tool, i) => (
-		<div key={`${tool.id}`}>
+		<div
+			ref={(element) => {
+				toolSkillRefs.current[i] = element;
+			}}
+			key={`${tool.id}`}
+		>
 			<Item id={tool.id} title={tool.title} rate={tool.rate} icon={tool.icon} />
 		</div>
 	));
@@ -43,7 +58,7 @@ const ToolSet = () => {
 		console.log(frontSkillRefs);
 		TLHEADER.from(".frontTitle", {
 			autoAlpha: 0,
-			y: -50,
+			y: -60,
 			duration: 0.5,
 			stagger: 0.1,
 			scrollTrigger: {
@@ -52,21 +67,20 @@ const ToolSet = () => {
 				end: "center center",
 			},
 		})
-			.from(frontSkillRefs.current, {
+			.from(frontSkillRefs.current, 1, {
 				autoAlpha: 0,
-				y: -50,
+				y: -60,
 				duration: 0.5,
 				stagger: 0.1,
 				scrollTrigger: {
 					trigger: ".frontSkillsWrapper",
 					scrub: 0.5,
-					markers: true,
 					end: "center center",
 				},
 			})
 			.from(".backendTitle", {
 				autoAlpha: 0,
-				x: -50,
+				x: -60,
 				duration: 0.4,
 				stagger: 0.1,
 				scrollTrigger: {
@@ -75,9 +89,9 @@ const ToolSet = () => {
 					end: "center 65%",
 				},
 			})
-			.from(backendSkillRefs.current, {
+			.from(backendSkillRefs.current, 1, {
 				autoAlpha: 0,
-				x: -50,
+				x: -60,
 				duration: 0.5,
 				stagger: 0.1,
 				scrollTrigger: {
@@ -97,7 +111,7 @@ const ToolSet = () => {
 					end: "center 65%",
 				},
 			})
-			.from(toolSkillRefs.current, {
+			.from(toolSkillRefs.current, 1, {
 				autoAlpha: 0,
 				x: 50,
 				duration: 0.5,
@@ -123,34 +137,15 @@ const ToolSet = () => {
 			<SectionTItle title={"ToolSet"} />
 			<h3 className="frontTitle">Frontend</h3>
 			<div className="frontSkillsWrapper">
-				<div ref={frontSkillRefs} className={classes["toolSet-item"]}>
-					{frontSkills.httpError && (
-						<p className={classes.isError}>{frontSkills.httpError}</p>
-					)}
-					{!frontSkills.isLoading ? frontItems : "Loading..."}
-				</div>
+				<div className={classes["toolSet-item"]}>{frontItems}</div>
 			</div>
-			<div className="backendTitle">
-				<h3>Backend</h3>
-			</div>
+			<h3 className="backendTitle">Backend</h3>
 			<div className="backendSkillsWrapper">
-				<div ref={backendSkillRefs} className={classes["toolSet-item"]}>
-					{backendSkills.httpError && (
-						<p className={classes.isError}>{backendSkills.httpError}</p>
-					)}
-					{!backendSkills.isLoading ? backItems : "Loading..."}
-				</div>
+				<div className={classes["toolSet-item"]}>{backItems}</div>
 			</div>
-			<div className="toolTitle">
-				<h3>Tools</h3>
-			</div>
+			<h3 className="toolTitle">Tools</h3>
 			<div className="toolsSkillsWrapper">
-				<div ref={toolSkillRefs} className={classes["toolSet-item"]}>
-					{toolSkills.httpError && (
-						<p className={classes.isError}>{toolSkills.httpError}</p>
-					)}
-					{!toolSkills.isLoading ? tools : "Loading..."}
-				</div>
+				<div className={classes["toolSet-item"]}>{tools}</div>
 			</div>
 		</section>
 	);

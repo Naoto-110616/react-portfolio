@@ -10,6 +10,8 @@ import {
 	SiUbuntu,
 	SiJavascript,
 	SiWebpack,
+	SiTailwindcss,
+	SiGreensock,
 } from "react-icons/si";
 import { FaSass, FaNodeJs, FaGulp } from "react-icons/fa";
 import { DiReact, DiNpm, DiGitBranch } from "react-icons/di";
@@ -37,27 +39,39 @@ export const frontSkills = [
 	},
 	{
 		id: 4,
+		title: "Tailwind",
+		rate: "☆☆☆☆",
+		icon: SiTailwindcss,
+	},
+	{
+		id: 5,
 		title: "Javascript",
 		rate: "☆☆☆☆☆",
 		icon: SiJavascript,
 	},
 	{
-		id: 5,
+		id: 6,
 		title: "React.js",
 		rate: "☆☆☆☆☆",
 		icon: DiReact,
 	},
 	{
-		id: 6,
+		id: 7,
 		title: "Typescript",
 		rate: "☆☆☆",
 		icon: SiTypescript,
 	},
 	{
-		id: 7,
+		id: 8,
 		title: "Next.js",
-		rate: "☆☆☆",
+		rate: "☆☆",
 		icon: SiNextdotjs,
+	},
+	{
+		id: 9,
+		title: "Greensock",
+		rate: "☆☆",
+		icon: SiGreensock,
 	},
 ];
 
@@ -104,7 +118,7 @@ export const toolSkills = [
 	{
 		id: 2,
 		title: "centOS",
-		rate: "☆☆",
+		rate: "☆",
 		icon: SiCentos,
 	},
 	{
@@ -127,24 +141,18 @@ export const toolSkills = [
 	},
 	{
 		id: 6,
-		title: "WordPress",
-		rate: "☆☆☆☆",
-		icon: SiWordpress,
-	},
-	{
-		id: 7,
 		title: "npm",
 		rate: "☆☆☆",
 		icon: DiNpm,
 	},
 	{
-		id: 8,
+		id: 7,
 		title: "git",
 		rate: "☆☆☆",
 		icon: DiGitBranch,
 	},
 	{
-		id: 9,
+		id: 8,
 		title: "Github",
 		rate: "☆☆☆",
 		icon: AiOutlineGithub,

@@ -12,11 +12,7 @@ const ToolSet = () => {
 	const toolSkillRefs = useRef([]);
 
 	const frontItems = frontSkills.map((frontSkill, i) => (
-		<div
-			ref={frontSkillRefs[i]}
-			className="frontSkill"
-			key={`${frontSkill.id}`}
-		>
+		<div ref={frontSkillRefs[i]} key={`${frontSkill.id}`}>
 			<Item
 				id={frontSkill.id}
 				title={frontSkill.title}
@@ -26,11 +22,7 @@ const ToolSet = () => {
 		</div>
 	));
 	const backItems = backendSkills.map((backendSkill, i) => (
-		<div
-			ref={backendSkillRefs[i]}
-			className="backendSkill"
-			key={`${backendSkill.id}`}
-		>
+		<div ref={backendSkillRefs[i]} key={`${backendSkill.id}`}>
 			<Item
 				id={backendSkill.id}
 				title={backendSkill.title}
@@ -40,7 +32,7 @@ const ToolSet = () => {
 		</div>
 	));
 	const tools = toolSkills.map((tool, i) => (
-		<div ref={toolSkillRefs[i]} className="toolSkill" key={`${tool.id}`}>
+		<div ref={toolSkillRefs[i]} key={`${tool.id}`}>
 			<Item id={tool.id} title={tool.title} rate={tool.rate} icon={tool.icon} />
 		</div>
 	));
@@ -59,7 +51,7 @@ const ToolSet = () => {
 				scrub: 0.5,
 			},
 		})
-			.from(frontSkillRefs.current.value, {
+			.from(frontSkillRefs.current, {
 				autoAlpha: 0,
 				y: -50,
 				duration: 0.5,
@@ -79,7 +71,7 @@ const ToolSet = () => {
 					scrub: 0.5,
 				},
 			})
-			.from(backendSkillRefs.current.value, {
+			.from(backendSkillRefs.current, {
 				autoAlpha: 0,
 				x: -50,
 				duration: 0.5,
@@ -99,7 +91,7 @@ const ToolSet = () => {
 					scrub: 0.5,
 				},
 			})
-			.from(toolSkillRefs.current.value, {
+			.from(toolSkillRefs.current, {
 				autoAlpha: 0,
 				x: 50,
 				duration: 0.5,

@@ -8,3 +8,10 @@
 	justify-content: center;
 	gap: 40px;
 }
+.sideProjectsItem {
+	width: 45%;
+	background: #9fc4c5;
+	border: solid 3px #5f9ea0;
+	padding: 0.8rem;
+	text-align: center;
+}
